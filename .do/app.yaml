@@ -12,3 +12,7 @@ static_sites:
     envs:
       - key: NODE_ENV
         value: production
+      - key: NEXT_TURBOPACK
+        value: "0"
+      - key: TURBOPACK
+        value: "0"
