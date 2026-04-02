@@ -1,5 +1,5 @@
-import { getAllPosts } from '@/lib/posts';
-import BlogCard from '@/components/BlogCard';
+import { getAllPosts } from '../lib/posts';
+import BlogCard from '../components/BlogCard';
 
 export default function HomePage() {
   const posts = getAllPosts();

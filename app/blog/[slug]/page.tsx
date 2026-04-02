@@ -1,5 +1,5 @@
-import { getAllPosts, getPostBySlug } from '@/lib/posts';
-import CTABanner from '@/components/CTABanner';
+import { getAllPosts, getPostBySlug } from '../../../lib/posts';
+import CTABanner from '../../../components/CTABanner';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
