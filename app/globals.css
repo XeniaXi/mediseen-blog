@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #bbf7d0;
+  color: #14532d;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #86efac;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #166534;
+}
+
+/* Reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #166534, #facc15);
+  z-index: 100;
+  transition: width 50ms linear;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeInUp 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* Category gradient patterns for cards */
+.card-pattern-green {
+  background: linear-gradient(135deg, #14532d 0%, #166534 50%, #15803d 100%);
+}
+.card-pattern-yellow {
+  background: linear-gradient(135deg, #854d0e 0%, #a16207 50%, #ca8a04 100%);
+}
+.card-pattern-blue {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 50%, #2563eb 100%);
+}
+.card-pattern-purple {
+  background: linear-gradient(135deg, #581c87 0%, #7c3aed 50%, #8b5cf6 100%);
+}
+.card-pattern-orange {
+  background: linear-gradient(135deg, #9a3412 0%, #c2410c 50%, #ea580c 100%);
+}
