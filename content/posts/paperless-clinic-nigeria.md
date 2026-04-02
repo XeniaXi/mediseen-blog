@@ -116,7 +116,7 @@ The solution: three shared tablets that staff could carry between rooms, plus on
 ## Common Fears — And Why They're Manageable
 
 **"What if the system goes down?"**
-Choose a system with offline capability. If the system works without internet (as any good HMS for Nigeria should), power outages and network issues don't stop your workflow.
+Choose a system that runs on your hospital's own local network. If the system works without internet (as any good HMS for Nigeria should), ISP outages and network issues don't stop your workflow. Cloud sync should be a backup layer, not a requirement.
 
 **"My staff are not tech-savvy."**
 Most HMS interfaces are simpler than a smartphone app. If your staff can use WhatsApp, they can use a properly designed HMS.

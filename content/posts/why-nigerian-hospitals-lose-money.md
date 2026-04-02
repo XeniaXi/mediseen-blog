@@ -93,4 +93,4 @@ When patient flow, billing, pharmacy, inventory, and staff management are integr
 
 ---
 
-MediSeen HMS was built specifically for Nigerian hospitals facing exactly these challenges. It works even during NEPA outages (offline-first design), handles NHIS billing, manages pharmacy stock in real time, and gives hospital owners a daily financial dashboard they can check from their phone. Start your **free 14-day trial** at [app.mediseenhms.com/register](https://app.mediseenhms.com/register) and see how much revenue you've been leaving on the table.
+MediSeen HMS was built specifically for Nigerian hospitals facing exactly these challenges. It runs on your hospital's own local network — no internet required — with cloud sync as a backup layer when connectivity is available. It handles NHIS billing, manages pharmacy stock in real time, and gives hospital owners a daily financial dashboard they can check from their phone. Start your **free 14-day trial** at [app.mediseenhms.com/register](https://app.mediseenhms.com/register) and see how much revenue you've been leaving on the table.
