@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://blog.mediseenhms.com/sitemap.xml',
+    sitemap: 'https://mediseen-blog-86we9.ondigitalocean.app/sitemap.xml',
   };
 }

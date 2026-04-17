@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blog.mediseenhms.com'),
+  metadataBase: new URL('https://mediseen-blog-86we9.ondigitalocean.app'),
   title: {
     default: 'MediSeen Blog — Hospital Management Insights for Nigerian Clinics',
     template: '%s | MediSeen Blog',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'MediSeen Blog',
     locale: 'en_NG',
-    url: 'https://blog.mediseenhms.com',
+    url: 'https://mediseen-blog-86we9.ondigitalocean.app',
     title: 'MediSeen Blog — Hospital Management Insights for Nigerian Clinics',
     description: 'Expert guides on running a successful hospital in Nigeria. From NHIS billing to digital records management.',
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://blog.mediseenhms.com',
+    canonical: 'https://mediseen-blog-86we9.ondigitalocean.app',
   },
 };
 
@@ -56,14 +56,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@type': 'Blog',
               name: 'MediSeen Blog',
               description: 'Hospital management insights for Nigerian clinics and hospitals',
-              url: 'https://blog.mediseenhms.com',
+              url: 'https://mediseen-blog-86we9.ondigitalocean.app',
               publisher: {
                 '@type': 'Organization',
                 name: 'MediSeen Health Systems Limited',
                 url: 'https://mediseenhms.com',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://blog.mediseenhms.com/logo.png',
+                  url: 'https://mediseenhms.com/og-image.png',
                 },
               },
               inLanguage: 'en-NG',
