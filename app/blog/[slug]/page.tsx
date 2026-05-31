@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPostBySlug(slug);
   if (!post) return {};
 
-  const url = `https://mediseen-blog-86we9.ondigitalocean.app/blog/${slug}`;
+  const url = `https://blog.mediseenhms.com/blog/${slug}`;
 
   return {
     title: post.title,
@@ -67,7 +67,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     dateModified: post.date,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://mediseen-blog-86we9.ondigitalocean.app/blog/${slug}`,
+      '@id': `https://blog.mediseenhms.com/blog/${slug}`,
     },
     articleSection: post.category,
     inLanguage: 'en-NG',
@@ -77,8 +77,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Blog', item: 'https://mediseen-blog-86we9.ondigitalocean.app' },
-      { '@type': 'ListItem', position: 2, name: post.title, item: `https://mediseen-blog-86we9.ondigitalocean.app/blog/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Blog', item: 'https://blog.mediseenhms.com' },
+      { '@type': 'ListItem', position: 2, name: post.title, item: `https://blog.mediseenhms.com/blog/${slug}` },
     ],
   };
 
