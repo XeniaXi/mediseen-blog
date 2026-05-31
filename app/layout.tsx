@@ -3,14 +3,28 @@ import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const siteUrl = 'https://blog.mediseenhms.com';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blog.mediseenhms.com'),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'MediSeen Blog — Hospital Management Insights for Nigerian Clinics',
+    default: 'MediSeen Blog - Hospital Management Insights for Nigerian Clinics',
     template: '%s | MediSeen Blog',
   },
-  description: 'Expert guides on running a successful hospital in Nigeria. NHIS billing, digital records, pharmacy management, and growing your clinic — from the team behind MediSeen HMS.',
-  keywords: ['hospital management Nigeria', 'HMS Nigeria', 'NHIS billing', 'clinic management', 'Nigerian hospitals', 'medical records', 'hospital software Nigeria', 'MediSeen'],
+  description: 'Practical guides for Nigerian hospitals on NHIS billing, offline hospital software, digital patient records, pharmacy stock control, patient safety, and clinic growth from MediSeen HMS.',
+  keywords: [
+    'hospital management Nigeria',
+    'hospital management system Nigeria',
+    'HMS Nigeria',
+    'NHIS billing',
+    'NHIA claims',
+    'offline hospital software Nigeria',
+    'clinic management',
+    'Nigerian hospitals',
+    'medical records Nigeria',
+    'hospital software Nigeria',
+    'MediSeen HMS',
+  ],
   authors: [{ name: 'MediSeen Team', url: 'https://mediseenhms.com' }],
   creator: 'MediSeen Health Systems Limited',
   publisher: 'MediSeen Health Systems Limited',
@@ -18,14 +32,14 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'MediSeen Blog',
     locale: 'en_NG',
-    url: 'https://blog.mediseenhms.com',
-    title: 'MediSeen Blog — Hospital Management Insights for Nigerian Clinics',
-    description: 'Expert guides on running a successful hospital in Nigeria. From NHIS billing to digital records management.',
+    url: siteUrl,
+    title: 'MediSeen Blog - Hospital Management Insights for Nigerian Clinics',
+    description: 'Expert guides on running a better hospital in Nigeria, from NHIS billing and offline software to digital records and operational reporting.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MediSeen Blog',
-    description: 'Hospital management insights for Nigerian clinics',
+    description: 'Hospital management insights for Nigerian clinics and hospitals',
   },
   robots: {
     index: true,
@@ -39,7 +53,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://blog.mediseenhms.com',
+    canonical: siteUrl,
   },
 };
 
@@ -56,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@type': 'Blog',
               name: 'MediSeen Blog',
               description: 'Hospital management insights for Nigerian clinics and hospitals',
-              url: 'https://blog.mediseenhms.com',
+              url: siteUrl,
               publisher: {
                 '@type': 'Organization',
                 name: 'MediSeen Health Systems Limited',

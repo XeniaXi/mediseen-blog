@@ -13,7 +13,14 @@ export interface Post {
   category: string;
   readTime: string;
   image?: string;
+  keywords: string[];
   content: string;
+}
+
+function normalizeKeywords(value: unknown): string[] {
+  if (Array.isArray(value)) return value.map(String).filter(Boolean);
+  if (typeof value === 'string') return value.split(',').map(k => k.trim()).filter(Boolean);
+  return [];
 }
 
 export function getAllPosts(): Post[] {
@@ -32,6 +39,7 @@ export function getAllPosts(): Post[] {
       category: data.category || 'Hospital Management',
       readTime: data.readTime || '5 min read',
       image: data.image,
+      keywords: normalizeKeywords(data.keywords),
       content,
     };
   }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -40,4 +48,24 @@ export function getAllPosts(): Post[] {
 export function getPostBySlug(slug: string): Post | null {
   const posts = getAllPosts();
   return posts.find(p => p.slug === slug) || null;
+}
+
+export function getRelatedPosts(slug: string, limit = 3): Post[] {
+  const posts = getAllPosts();
+  const current = posts.find(p => p.slug === slug);
+  if (!current) return [];
+
+  const currentKeywords = new Set(current.keywords.map(k => k.toLowerCase()));
+
+  return posts
+    .filter(post => post.slug !== slug)
+    .map(post => {
+      const keywordScore = post.keywords.filter(k => currentKeywords.has(k.toLowerCase())).length;
+      const categoryScore = post.category === current.category ? 2 : 0;
+      return { post, score: keywordScore + categoryScore };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score || new Date(b.post.date).getTime() - new Date(a.post.date).getTime())
+    .slice(0, limit)
+    .map(item => item.post);
 }

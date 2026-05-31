@@ -1,4 +1,5 @@
-import { getAllPosts, getPostBySlug } from '../../../lib/posts';
+import Link from 'next/link';
+import { getAllPosts, getPostBySlug, getRelatedPosts } from '../../../lib/posts';
 import CTABanner from '../../../components/CTABanner';
 import ReadingProgress from '../../../components/ReadingProgress';
 import ShareButtons from '../../../components/ShareButtons';
@@ -20,7 +21,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.title,
     description: post.excerpt,
-    keywords: [post.category, 'Nigerian hospitals', 'HMS', 'MediSeen', ...post.title.split(' ').filter(w => w.length > 4)],
+    keywords: [
+      ...post.keywords,
+      post.category,
+      'Nigerian hospitals',
+      'hospital management system Nigeria',
+      'MediSeen HMS',
+      ...post.title.split(' ').filter(w => w.length > 4),
+    ],
     authors: [{ name: post.author }],
     openGraph: {
       type: 'article',
@@ -48,6 +56,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+  const relatedPosts = getRelatedPosts(slug);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -65,6 +74,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     },
     datePublished: post.date,
     dateModified: post.date,
+    keywords: post.keywords,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `https://blog.mediseenhms.com/blog/${slug}`,
@@ -128,6 +138,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
             <ShareButtons title={post.title} slug={slug} />
           </div>
+          {post.keywords.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {post.keywords.slice(0, 6).map(keyword => (
+                <span key={keyword} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          )}
         </header>
 
         {/* Article body */}
@@ -140,6 +159,25 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <p className="text-sm text-gray-500">Found this useful? Share it with a colleague.</p>
           <ShareButtons title={post.title} slug={slug} />
         </div>
+
+        {relatedPosts.length > 0 && (
+          <section className="mt-10 border-t border-gray-200 pt-8">
+            <h2 className="text-xl font-bold text-gray-900">Related articles</h2>
+            <div className="mt-4 grid gap-3">
+              {relatedPosts.map(related => (
+                <Link
+                  key={related.slug}
+                  href={`/blog/${related.slug}`}
+                  className="block rounded-xl border border-gray-100 bg-white p-4 hover:border-green-200 hover:shadow-sm transition"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wide text-green-700">{related.category}</p>
+                  <h3 className="mt-1 font-bold text-gray-900">{related.title}</h3>
+                  <p className="mt-1 text-sm text-gray-500 line-clamp-2">{related.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <CTABanner />
       </article>
