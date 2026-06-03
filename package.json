@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "content:scan": "node scripts/scan-health-topics.mjs"
+    "content:scan": "node scripts/scan-health-topics.mjs",
+    "content:publish": "node scripts/publish-draft.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",

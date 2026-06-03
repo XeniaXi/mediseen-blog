@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const postsDir = path.join(process.cwd(), 'content/posts');
+const draftsDir = path.join(process.cwd(), 'content/drafts');
 
 export interface Post {
   slug: string;
@@ -15,6 +16,8 @@ export interface Post {
   image?: string;
   keywords: string[];
   content: string;
+  draft?: boolean;
+  filename?: string;
 }
 
 function normalizeKeywords(value: unknown): string[] {
@@ -41,6 +44,30 @@ export function getAllPosts(): Post[] {
       image: data.image,
       keywords: normalizeKeywords(data.keywords),
       content,
+    };
+  }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export function getAllDrafts(): Post[] {
+  if (!fs.existsSync(draftsDir)) return [];
+  const files = fs.readdirSync(draftsDir).filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
+  return files.map(filename => {
+    const slug = filename.replace(/\.mdx?$/, '');
+    const raw = fs.readFileSync(path.join(draftsDir, filename), 'utf-8');
+    const { data, content } = matter(raw);
+    return {
+      slug,
+      filename,
+      title: data.title || 'Untitled draft',
+      excerpt: data.excerpt || '',
+      date: data.date || new Date().toISOString(),
+      author: data.author || 'MediSeen Team',
+      category: data.category || 'Hospital Management',
+      readTime: data.readTime || '5 min read',
+      image: data.image,
+      keywords: normalizeKeywords(data.keywords),
+      content,
+      draft: data.draft !== false,
     };
   }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
