@@ -1,7 +1,7 @@
 ---
 title: "Malaria or Typhoid? What Nigerian Families Should Do Before Treating a Fever"
 excerpt: "During Nigeria's rainy season, many families assume every fever is malaria or typhoid. Here is how to think about symptoms, testing, red flags, and safe next steps."
-date: "2026-06-03"
+date: "2026-06-05"
 author: "MediSeen Research Team"
 category: "Consumer Health"
 readTime: "8 min read"
