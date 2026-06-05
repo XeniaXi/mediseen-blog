@@ -1,7 +1,7 @@
 ---
 title: "High Blood Pressure in Nigeria: What Your Numbers Mean and When to See a Clinician"
 excerpt: "High blood pressure often has no symptoms. Here is how Nigerian adults can check it properly, understand common readings, and know when a clinic visit is urgent."
-date: "2026-06-04"
+date: "2026-06-05"
 author: "MediSeen Research Team"
 category: "Consumer Health"
 readTime: "7 min read"
